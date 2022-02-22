@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 // routeur : 
 //dans cd public
 // php -S localhost:8000
@@ -14,62 +14,76 @@ else if ($_SERVER['PATH_INFO']=="/accueil"){
 
 }
 
-// else if ($_SERVER['PATH_INFO']=="/article"){
-//     include __DIR__.'/../src/controller/articleController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/publication"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    publier_annonce();
 
-// else if ($_SERVER['PATH_INFO']=="/creer_article"){
-//     include __DIR__.'/../src/controller/insertion_artController.php';
-// }
+}
 
-// else if ($_SERVER['PATH_INFO']=="/validationajout"){
-//     include __DIR__.'/../src/controller/insertionokController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/enregistrer_annonce"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    enregistrer_annonce();
 
-// else if ($_SERVER['PATH_INFO']=="/modification_article"){
-//     include __DIR__.'/../src/controller/modif_artController.php';
-// }
+}
 
-// else if ($_SERVER['PATH_INFO']=="/validationmodif"){
-//     include __DIR__.'/../src/controller/modificationokController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/mes_annonces"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    mes_annonces();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/suppression_article"){
-//     include __DIR__.'/../src/controller/supp_artController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/annonces"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    toutes_annonces();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/ajouter_favoris"){
-//     include __DIR__.'/../src/controller/ajout_favController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/recents"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    recentes_annonces();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/favoris_articles"){
-//     include __DIR__.'/../src/controller/fav_artController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/top_annonces"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    top_annonces();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/retirer_favori"){
-//     include __DIR__.'/../src/controller/retir_favController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/ajouter_favoris"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    ajouter_favoris();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/vider_favoris"){
-//     include __DIR__.'/../src/controller/vider_favController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/favoris"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    mes_favoris();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/ajouter_panier"){
-//     include __DIR__.'/../src/controller/ajout_panController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/inscription"){
+   
+    include __DIR__.'/../src/controller/connexion_ctrl.php';
+    inscription();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/panier_articles"){
-//     include __DIR__.'/../src/controller/pan_artController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/connexion"){
+   
+    include __DIR__.'/../src/controller/connexion_ctrl.php';
+    connexion();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/vider_panier"){
-//     include __DIR__.'/../src/controller/vider_panController.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/deconnexion"){
+   
+    include __DIR__.'/../src/controller/connexion_ctrl.php';
+    deconnexion();
+}
 
-// else if ($_SERVER['PATH_INFO']=="/commande"){
-//     include __DIR__.'/../src/controller/commande_Controller.php';
-// }
-
-// else if ($_SERVER['PATH_INFO']=="/bondecommande"){
-//     include __DIR__.'/../src/controller/bdc_Controller.php';
-// }
+else if ($_SERVER['PATH_INFO']=="/identification"){
+   
+    include __DIR__.'/../src/controller/connexion_ctrl.php';
+    identification();
+}

@@ -1,4 +1,363 @@
+main {
+    min-height: 780px;
+}
+
+nav {
+    padding-left: 12px;
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(240, 248, 246);
+}
+
+footer a {
+    text-decoration: none;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+    margin-bottom: 5px;
+}
+
+fieldset input {
+    width: 200px;
+}
+
+fieldset {
+    background-color: rgb(201, 191, 191);
+}
+
+legend {
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.808);
+    color: aliceblue;
+}
+
+.centering {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.formulaireSub {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
+.formulaireSub fieldset input {
+    margin-left: 50px;
+    width: 260px !important;
+}
+
+.formulaireLogin {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
+.formulaireLogin fieldset input {
+    margin-left: 50px;
+    width: 210px !important;
+}
+
+.formTitle {
+    width: fit-content;
+    padding: 5px 10px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: black;
+    color: rgb(201, 191, 191);
+}
+
+.formButton {
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+}
+
+.headerLog {
+    display: inline;
+}
+
+.headerLog img {
+    position: relative; top: 2px;
+}
+
+.headerLog a {
+    text-decoration: none;
+}
+
+/* ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////// */
+
+#listeAnnonces {
+    padding: 0px 115px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.annonce {
+    box-sizing: border-box;
+    padding: 15px 30px;
+    width: 800px;
+    max-height: 1200px;
+    background-color: rgba(236, 232, 227, 0.884);
+    margin-bottom: 100px;
+}
+
+.annonce .titre {
+    font-size: 25px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.annonce .ref {
+    text-align: end;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.annonce .titre a {
+    text-decoration: none;
+}
+
+.annonce .message {
+    white-space: pre-wrap;
+    height: 400px;
+    max-height:400px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.annonce .message:hover {
+    overflow: auto;
+}
+
+.annonce .date {
+    margin-bottom: 0px;
+}
+
+.annonce .date span {
+    padding: 0px 5px 5px;
+    margin-right: 5px;
+    background-color: rgba(187, 96, 60, 0.966);
+    color: antiquewhite;
+}
+
+.annonce .photos {    
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.annonce .photos img {
+    height: 300px;
+    margin: 0px 10px;
+}
+
+.annonce .modsup {    
+    text-align: end;
+}
+
+.annonce .modsup button {    
+    font-size: 16px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    background-color: rgb(89, 89, 134);
+    border-radius: 10px;
+}
+
+.annonce .modsup button a {    
+    color: wheat;
+}
+
+#article {
+    padding-left: 25px;
+    background-color: rgb(248, 248, 248);
+}
+
+.annonce2 {
+    padding: 15px 30px;
+    width: 100%;
+    margin-left: -100px;
+    background-color: rgba(248, 248, 248, 0.616);
+}
+
+.annonce2 .titre {
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.annonce2 .ref {
+    font-size: 15px;
+    margin-bottom: 50px;
+}
+
+.annonce2 .titre a {
+    text-decoration: none;
+}
+
+.annonce2 .description {
+    max-height:300px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.annonce2 .description:hover {
+    overflow: auto;
+}
+
+.annonce2 .date {
+    margin-bottom: 50px;
+}
+
+.annonce2 .date span {
+    padding: 0px 5px 5px;
+    background-color: rgba(187, 96, 60, 0.966);
+    color: antiquewhite;
+}
+
+.annonce2 .photos {
+    margin-bottom: 80px;
+}
+
+.annonce2 .photos img {
+    height: 250px;
+}
+
+.annonce2 .modsup { 
+    margin-bottom: 80px;
+}
+
+.annonce2 .modsup button {    
+    font-size: 16px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    background-color: rgb(89, 89, 134);
+    border-radius: 10px;
+}
+
+.annonce2 .modsup button a {    
+    color: wheat;
+}
+
+.panier-form {
+  display: inline !important;
+  margin-bottom: auto;
+}
+
+.panier-form input {
+  max-width: 47px;
+}
+
+.shopping-cart-quant {
+  position: relative; top: -6px;
+}
+
+.art_icons {
+  margin-left: 95%;
+}
+
+#favoris {
+    background-color: rgba(248, 248, 248, 0.616);
+}
+
+.favoris_articles {
+  height: 300px;
+  width: 95%;
+  padding: 0px 20px;
+  display: flex;
+}
+
+.favoris_articles .image_article {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.favoris_articles .image_article img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.favoris_articles .contenu_article {
+  text-decoration: none;
+  padding-left: 100px;
+  margin-left: 50px;
+  width: 40%;
+  height: 100%;
+}
+
+.favoris_articles .contenu_article a {
+  text-decoration: none;
+}
+
+.favoris_articles .action_article {
+  width: 40%;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.favoris_articles .action_article button {
+  width: 200px;
+  height: 50px;
+  margin-top: 5px;
+  border-radius: 30px;
+  font-size: 15px;
+  color: beige;
+}
+
+.favoris_articles .action_article .action_article_quantite {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.favoris_articles .action_article input[type="number"] {
+  margin-right: 10px;
+  position: relative;
+  bottom: -12px;
+  height: 17px;
+  width: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ***************** BOOTSTRAP ***************** /
+
+/* ----------------- NAVBAR -------------------/
 
 /* Underline Effect*/
 .nav-item {
@@ -47,5 +406,119 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
   }
+
+  /* --------------------- FORMULAIRE ------------------ */
+
+  * {
+    outline:none;
+      border:none;
+      margin:0px;
+      padding:0px;
+      /* font-family:Courier, monospace; */
+  }
+  
+  #paper {
+      color:#FFF;
+      font-size:20px;
+  }
+  #margin {
+      margin-left:12px;
+      margin-bottom:20px;
+      color: #fcf95c;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none; 
+  }
+  #text {
+      width:700px;
+      overflow:hidden;
+      background-color:#FFF;
+      color:#222;
+      font-family:Courier, monospace;
+      font-weight:normal;
+      font-size:20px;
+      resize:none;
+      line-height:40px;
+      padding-left:100px;
+      padding-right:15px;
+      padding-top:45px;
+      padding-bottom:600px;
+      background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+      background-repeat:repeat-y, repeat;
+      -webkit-border-radius:12px;
+      border-radius:12px;
+      -webkit-box-shadow: 0px 2px 14px #000;
+      box-shadow: 0px 2px 14px #000;
+      border-top:1px solid #FFF;
+      border-bottom:1px solid #FFF;
+  }
+
+  #title {
+      background-color:transparent;
+      border-bottom:3px solid #fcf95c;
+      color:#FFF;
+      font-size:20px;
+      font-family:Courier, monospace;
+      height:28px;
+      font-weight:bold;
+      width:220px;
+  }
+
+  #imageupload {
+      cursor:pointer;
+      margin-top:20px;
+      margin-left:0px;
+      float:left;
+      height:40px;
+      padding-left:24px;
+      padding-right:24px;
+      font-family:Arial, Helvetica, sans-serif;
+      /* font-weight:bold; */
+  }
+
+  #button {
+      cursor:pointer;
+      margin-top:20px;
+      float:right;
+      height:40px;
+      padding-left:24px;
+      padding-right:24px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:bold;
+      font-size:20px;
+      color:#FFF;
+      text-shadow: 0px -1px 0px #000000;
+      -webkit-border-radius:8px;
+      border-radius:8px;
+      border-top:1px solid #FFF;
+      -webkit-box-shadow: 0px 2px 14px #000;
+      box-shadow: 0px 2px 14px #000;
+      background-color: #63afd8;
+      background-image:url(https://static.tumblr.com/maopbtg/ZHLmgtok7/button.png);
+      background-repeat:repeat-x;
+  }
+  #button:active {
+      zoom: 1;
+      filter: alpha(opacity=80);
+      opacity: 0.8;
+  }
+  #button:focus {
+      zoom: 1;
+      filter: alpha(opacity=80);
+      opacity: 0.8;
+  }
+  #wrapper {
+      width:700px;
+      height:auto;
+      margin-left:auto;
+      margin-right:auto;
+      margin-top:24px;
+      margin-bottom:100px;
+  }
+
+  
