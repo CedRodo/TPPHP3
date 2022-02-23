@@ -49,6 +49,9 @@ function enregistrer_annonce() {
     include __DIR__."/../../templates/annonce_envoi.php";
 }
 
+function annonce() {
+    include __DIR__."/../../templates/annonce.php";
+}
 function mes_annonces() {
     if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
 
@@ -74,50 +77,140 @@ function top_annonces() {
     include __DIR__."";
 }
 
-function ajouter_favoris() {
-    if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
 
-    include __DIR__.'/../entity/Annonces.php';
+
+// function ajouter_favoris() {
+//     if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+
+//     include __DIR__.'/../entity/Annonces.php';
     
-    if (isset($_SESSION['favoris'])==false){
-        $entry = Annonces::retrieveByPK($_GET['id']);
-        $entry->datefavori = $_GET['datefavori'];
-        $entry->save();
-        $tab_fav[]=$_GET['id'];
-        $_SESSION['favoris']=$tab_fav;
-    }
+//     if (isset($_COOKIE['favoris'])==false){
+//         $monfavori = Annonces::retrieveByPK($_GET['id']);
+//         // $monfavori_encode=json_encode($monfavori);
+//         $monfavori_encode=json_encode($monfavori);
+//         setcookie("favoris",$monfavori_encode,time() + 60*60*24*30);
+//         include __DIR__."/../../templates/ajout_favoris.php";
+//         return;
+//     }
+
+//         // Je recupere le cookie
     
-    else {
-    
-        // si l'identifant est get est deja dans mon tableau alors je ne l'insere pas dans la 
-        // session
-    
-        // recuperer le tableau existant
-        $tab_fav=$_SESSION['favoris'];
-    
-        // on ajoute cet ID uniquement dans le cas ou l'ID n'est pas enregistré
-        if (in_array($_GET['id'], $tab_fav)==false){
-            // Rajouter au tableau le nouvelle identifiant sur lequel on a cliqué
-             $tab_fav[]=$_GET['id'];
-    
-             $entry = Annonces::retrieveByPK($_GET['id']);
-             $entry->datefavori = $_GET['datefavori'];
-             $entry->save();
-    
-             // Nouveau tableau complet vient s'enregistrer dans le tableau de session
-             $_SESSION['favoris']=$tab_fav;
-    
-    
-        }
+//     // if (isset($_COOKIE['favoris'])){
+
+//         // Je recupere le cookie
+//        $favoris_str=$_COOKIE['favoris'];
+//        //je convertie en objet panier
+//        $favoris=json_decode($favoris_str);
+
+//     //    $favoris_encode=json_encode($favoris);
+
+
+//         // include_once __DIR__."/../entity/Favori.php";
+//         // $favoris = new Favori();
+//         // $favoris->ligneFav=[];
+//         // include_once __DIR__."/../entity/LigneFav.php";
+//         // $unfavori=new LigneFav();
+//         // $unfavori->titre=Annonces::retrieveById($_GET['id']);
+//         var_dump($_COOKIE);
+//         $monfavori = Annonces::retrieveByPK($_GET['id']);
+//         echo "<br/>Mon Favori 1<br/>";
+//         print_r($monfavori);
+//         $monfavori_encode=json_encode($monfavori, true);
+//         echo "<br/>Mon Favori après decode<br/>";
+//         print_r($monfavori);
+        
+        
+//         // $monfavori_encode=json_encode($monfavori);
+
+
+//         echo "<br/>Favoris 1<br/>";
+//         var_dump($favoris); // OBJET
+//         echo "<br/>";
+//         $favoris_encode=json_encode($favoris);
+//         echo "<br/>Favori après encode<br/>";
+//         var_dump($favoris_encode);
+//         echo "<br/>";
+//         $favoris_decode=json_decode($favoris_encode, true);
+//         echo "<br/>Favori après decode true<br/>";
+//         var_dump($favoris_decode);
+//         // var_dump($monfavori_encode);
+//         echo "<br/>";
+//         $favoris_decode = json_decode($favoris_encode, true);
+//         $favoris_str = json_encode($favoris_decode);
+//         $monfavori_decode = json_decode($monfavori_encode, true);
+//         var_dump($monfavori_decode);
+//         var_dump($favoris_decode);
+//         echo "<br/>";
+//         // array_push($favoris_decode, $monfavori_decode);
+//         // array_push($favoris_encode, $monfavori_encode);
+//         // il faut faire le cookie
+//         // $favoris_encode = json_encode($favoris_decode);
+//         // array_push($favoris->ligneFav, $unfavori);
+//         // $favoris_encode = json_encode($favoris);
+//         // setcookie("favoris",$favori_encode);
+//         setcookie("favoris",$favoris_str, time() + 60*60*24*30);
        
+//     include __DIR__."/../../templates/ajout_favoris.php";
+// }
+
+
+function ajouter_favoris() {
+
+include __DIR__.'/../entity/Annonces.php';
+// SOIT LA SESSION N EXISTE PAS
+if (isset($_SESSION['favoris'])==false){
+    $entry = Annonces::retrieveByPK($_GET['id']);
+    $entry->datefavori = $_GET['datefavori'];
+    $entry->save();
+    $tab_fav[]=$_GET['id'];
+    $_SESSION['favoris']=$tab_fav;
+}
+
+else {
+    
+    $tab_fav=$_SESSION['favoris'];
+
+    
+    if (in_array($_GET['id'], $tab_fav)==false){
+        
+         $tab_fav[]=$_GET['id'];
+
+         $entry = Annonces::retrieveByPK($_GET['id']);
+         $entry->datefavori = $_GET['datefavori'];
+         $entry->save();
+         
+         $_SESSION['favoris']=$tab_fav;
+
+
     }
+   
+}
         
     include __DIR__."/../../templates/ajout_favoris.php";
 }
 
 function mes_favoris() {
     if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
-    include __DIR__."/../../templates/favoris.php";
+    include_once __DIR__.'/../Entity/Annonces.php';
+    include_once __DIR__.'/../../templates/favoris.php';
+}
+
+function retirer_favori() {
+    if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+
+    require_once __DIR__."/../../src/Entity/Annonces.php";
+    
+    $entry = Annonces::retrieveByPK($_GET['id']);
+    
+    include __DIR__."/../../templates/retir_favori.php";
+}
+
+function vider_favoris() {
+    if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+    
+    require_once __DIR__."/../../src/Entity/Annonces.php";
+
+    include __DIR__."/../../templates/vid_favoris.php";
 }
 
 

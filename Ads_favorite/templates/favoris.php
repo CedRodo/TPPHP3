@@ -1,27 +1,28 @@
-<h2>Liste des articles favoris</h2>
-<br/>
+<?php include_once 'header.php'; ?>
+<h1 style="color: white; margin:0px 10px 150px 10px;">Liste des favoris</h1>
+<br/> style="color: white; margin-left: 10px; margin-bottom: 100px;
 <div id="favoris">
 <?php $pos = 0; ?>
 <?php if (isset($_SESSION["favoris"])==true) { 
 
 foreach($_SESSION["favoris"] as $monannonce){
+    include_once __DIR__."/../src/entity/Annonces.php";
     $entry = Annonces::retrieveByPK($monannonce);   
     ?>
 
 
-<hr>
-<br/>
-<section class="favoris_articles">
-<section class="image_article">
-<img src="<?php echo $entry->image; ?>" alt="image de <?php echo $entry->titre; ?>">
-</section>
-<section class="contenu_article">
-<p class="titre_favori"><a href="article?id=<?php echo $monannonce; ?>"><?php echo $entry->titre; ?></a><span>Ref : <?php echo $entry->ref; ?></span></p></br>
-<p>Message : <?= $entry->message; ?></p>
-<p>Ajouté le : <?= $entry->datefavori; ?></p>
-</section>
-    <button><a href="retirer_favori?id=<?php echo $monannonce; ?>&pos=<?php echo $pos; ?>">Retirer l'annonce des favoris</a></button>
-</section>
+<section class="favoris_annonces">
+<div class="image_annonce">
+<img src="http://localhost:8000/img/<?= $entry->image; ?>" alt="image de <?= $entry->titre; ?>">
+</div>
+<div class="contenu_annonce">
+<div class="en-tete"><p class="date"><span>Ajouté le</span> <?= $entry->datefavori; ?></p><p class="ref">N° de l'annonce : <?= $entry->ref; ?></p></div>
+<p class="titre_favori"><a href="annonce?id=<?= $monannonce; ?>"><?= $entry->titre; ?></a></p></br>
+<p class="message"><?= $entry->message; ?></p>
+</div>
+<div class="action_annonce">
+    <button><a href="retirer_favori?id=<?= $monannonce; ?>&pos=<?= $pos; ?>">Retirer l'annonce des favoris</a></button>
+</div>
 </section>
     
 <?php 
@@ -33,11 +34,11 @@ foreach($_SESSION["favoris"] as $monannonce){
 
 <p style="color: white; font-size: 20px; text-align: end;"> <button><a href="vider_favoris">Vider les favoris</a></button></p>
 
-<p style="color: white; font-size: 20px;">Retour vers l'<a style="text-decoration: none; color: yellow;" href="/">accueil</a> ou la <a style="text-decoration: none; color: yellow;" href="liste_articles">les annonces</a>.</p>
+<p style="color: white; font-size: 20px;">Retour vers l'<a style="text-decoration: none; color: yellow;" href="/">accueil</a> ou <a style="text-decoration: none; color: yellow;" href="mes_annonces">mes annonces</a>.</p>
 
 <?php } else { ?>
 
-<p style="color: white; font-size: 20px;"> La liste des favoris est vide. </p>
+<p style="color: white; font-size: 20px;"> La liste des favoris est vide.</p>
     
 <?php } ?>
-<?php include "footer.php"; ?>
+<?php include_once "footer.php"; ?>

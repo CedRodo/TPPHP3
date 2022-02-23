@@ -40,6 +40,12 @@ else if ($_SERVER['PATH_INFO']=="/annonces"){
     toutes_annonces();
 }
 
+else if ($_SERVER['PATH_INFO']=="/annonce"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    annonce();
+}
+
 else if ($_SERVER['PATH_INFO']=="/recents"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
@@ -64,6 +70,18 @@ else if ($_SERVER['PATH_INFO']=="/favoris"){
     mes_favoris();
 }
 
+else if ($_SERVER['PATH_INFO']=="/retirer_favori"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    retirer_favori();
+}
+
+else if ($_SERVER['PATH_INFO']=="/vider_favoris"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    vider_favoris();
+}
+
 else if ($_SERVER['PATH_INFO']=="/inscription"){
    
     include __DIR__.'/../src/controller/connexion_ctrl.php';
@@ -86,4 +104,9 @@ else if ($_SERVER['PATH_INFO']=="/identification"){
    
     include __DIR__.'/../src/controller/connexion_ctrl.php';
     identification();
+}
+
+else if ($_SERVER['PATH_INFO']=="/videcookie"){
+   
+    include __DIR__.'/../src/controller/videcookie.php';
 }

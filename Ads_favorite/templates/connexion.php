@@ -1,6 +1,6 @@
 <?php include_once "header.php";
 if (($emailUtilLog==$emailUtilTable) && (password_verify($mdpUtilLog, $mdpUtilTable))) { ?>
-    <p style="color: white; font-size: 20px;">Bonjour, <?php echo $prenomUtilTable." ".$nomUtilTable; ?> ! Vous pouvez <a style="color: yellow; text-decoration: none;" href="publication">publier</a> ou <a style="color: red; text-decoration: none" href="mes_annonces">consulter</a> vos annonces.</p>
+    <p style="color: white; font-size: 20px;">Bonjour, <?php echo $prenomUtilTable." ".$nomUtilTable; ?> ! Vous pouvez <a style="color: yellow; text-decoration: none;" href="publication">publier</a> ou <a style="color: red; text-decoration: none" href="mes_annonces">consulter</a> des annonces.</p>
 <?php   include_once __DIR__.'/../src/entity/Utilisateur.php';
         $utilisateur = Utilisateur::retrieveByMail($_POST['mail'], SimpleOrm::FETCH_ONE);
         $_SESSION['user']=$_POST['mail'];
