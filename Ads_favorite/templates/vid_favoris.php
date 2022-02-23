@@ -1,7 +1,8 @@
 <?php include_once 'header.php';
 if (isset($_SESSION['favoris'])) {
     unset($_SESSION['favoris']);
-} else if (isset($_COOKIE['favoris'])) {
+}
+if (isset($_COOKIE['favoris'])) {
     unset($_COOKIE['favoris']);
     setcookie('favoris', '', time() - 3600, '/'); // empty value and old timestamp
 }?>

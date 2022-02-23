@@ -177,37 +177,30 @@ function mes_favoris2() {
 }
 
 function retirer_favori() {
-    // if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+    if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
 
-    // require_once __DIR__."/../../src/Entity/Annonces.php";
+    require_once __DIR__."/../../src/Entity/Annonces.php";
     
-    // $entry = Annonces::retrieveByPK($_GET['id']);
-    // $favtitre = $entry->titre;
+    $entry = Annonces::retrieveByPK($_GET['id']);
+    $favtitre = $entry->titre;
     $index = $_GET['pos'];
-    // if (isset($_SESSION['favoris'])) {
-    //     unset($_SESSION['favoris'][$index]);
-    //     $tab_retire = $_SESSION['favoris'];
-    //     $_SESSION['favoris'] = $tab_retire;
-    // }
+    if (isset($_SESSION['favoris'])) {
+        unset($_SESSION['favoris'][$index]);
+        $tab_retire = $_SESSION['favoris'];
+        $_SESSION['favoris'] = $tab_retire;
+    }
     if (isset($_COOKIE['favoris'])) {
         $favoris_str = ($_COOKIE['favoris']);
         $favoris=json_decode($favoris_str);
-        unset($_COOKIE['favoris']);
-        var_dump($_COOKIE);
-        echo "<br/><br/>";
-        var_dump($favoris);
-        echo "<br/><br/>";
-        var_dump($favoris->favori);
-        echo "<br/><br/>";
-        var_dump($favoris->favori[$index]);
         unset($favoris->favori[$index]);
-        echo "<br/><br/>";
-        var_dump($favoris->favori);
         $favoris_str=json_encode($favoris);
-        echo "<br/><br/>";
-        var_dump($favoris_str);
         setcookie("favoris",$favoris_str);
     }
+    
+    if ($_COOKIE['favoris']="") {
+        unset($_COOKIE);
+    }
+    
     
     include __DIR__."/../../templates/retir_favori.php";
 }
