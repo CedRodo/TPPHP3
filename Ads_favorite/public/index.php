@@ -64,10 +64,22 @@ else if ($_SERVER['PATH_INFO']=="/ajouter_favoris"){
     ajouter_favoris();
 }
 
+else if ($_SERVER['PATH_INFO']=="/ajouter_favoris2"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    ajouter_favoris2();
+}
+
 else if ($_SERVER['PATH_INFO']=="/favoris"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
     mes_favoris();
+}
+
+else if ($_SERVER['PATH_INFO']=="/favoris2"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    mes_favoris2();
 }
 
 else if ($_SERVER['PATH_INFO']=="/retirer_favori"){
@@ -109,4 +121,9 @@ else if ($_SERVER['PATH_INFO']=="/identification"){
 else if ($_SERVER['PATH_INFO']=="/videcookie"){
    
     include __DIR__.'/../src/controller/videcookie.php';
+}
+
+else if ($_SERVER['PATH_INFO']=="/test"){
+   
+    include __DIR__.'/../src/controller/test.php';
 }

@@ -39,10 +39,10 @@
           <a class="dropdown-item" href="#">Les annonces récentes</a>
           <a class="dropdown-item" href="#">Les meilleures annonces</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="favoris">Mes favoris</a>
+          <a class="dropdown-item" href="favoris2">Mes favoris</a>
         </div>
             <li class="nav-item">
-        <a class="nav-link" href="favoris">Mes favoris</a>
+        <a class="nav-link" href="favoris2">Mes favoris</a>
       </li>
             <li style="width: 1100px;" class="nav-item">
             <div style="padding-top: 5px; text-align: end;">

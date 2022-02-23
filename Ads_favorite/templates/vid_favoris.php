@@ -1,6 +1,10 @@
 <?php include_once 'header.php';
-
-unset($_SESSION['favoris']); ?>
+if (isset($_SESSION['favoris'])) {
+    unset($_SESSION['favoris']);
+} else if (isset($_COOKIE['favoris'])) {
+    unset($_COOKIE['favoris']);
+    setcookie('favoris', '', time() - 3600, '/'); // empty value and old timestamp
+}?>
 
 
 <p style="color: white; font-size: 20px;">La liste de favoris a bien été supprimée.</p>

@@ -9,7 +9,7 @@
 foreach($annonces as $annonce){ ?>
     <article class="annonce">
         <p class="ref">Ref. : <?= $annonce->ref; ?></p>
-        <div class="art_icons"><a class="star-favorite" href="ajouter_favoris?id=<?= $annonce->id ;?>&datefavori=<?= $datefavori; ?>"><img title="Favoris" src="http://localhost:8000/assets/icons_logos/favorite.png" alt="star favorite"><a/></div>
+        <div class="art_icons"><a class="star-favorite" href="ajouter_favoris2?id=<?= $annonce->id ;?>&datefavori=<?= $datefavori; ?>"><img title="Favoris" src="http://localhost:8000/assets/icons_logos/favorite.png" alt="star favorite"><a/></div>
         <p class="titre"><a href="annonce?id=<?= $annonce->id; ?>"><?= $annonce->titre; ?></a></p>
         <p class="photos"><img src="http://localhost:8000/img/<?= $annonce->image; ?>" alt="image de l'annonce"></p>
         <p class="message"><?= $annonce->message;?></p>

@@ -1,12 +1,4 @@
-<?php include_once 'header.php';
-$favtitre = $entry->titre;
-$index = $_GET['pos'];
-unset($_SESSION['favoris'][$index]);
-$tab_retire = $_SESSION['favoris'];
-$_SESSION['favoris'] = $tab_retire;
-
-
-?>
+<?php include_once 'header.php'; ?>
 
 <p style="color: white; font-size: 20px;">Le favori "<?= $favtitre; ?>" a été retiré.</p>
 

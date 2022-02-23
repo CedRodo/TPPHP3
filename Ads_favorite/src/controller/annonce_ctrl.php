@@ -77,82 +77,51 @@ function top_annonces() {
     include __DIR__."";
 }
 
+// version $_COOKIE
 
+function ajouter_favoris2() {
+    if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
 
-// function ajouter_favoris() {
-//     if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+    include_once __DIR__.'/../entity/Annonces.php';
+    include_once __DIR__.'/../entity/Favoris.php';
+    include_once __DIR__.'/../entity/Favori.php';
 
-//     include __DIR__.'/../entity/Annonces.php';
+    if (isset($_COOKIE['favoris'])){
+
+        // Je recupere le cookie
+       $favoris_str=$_COOKIE['favoris'];
+       //je convertie en objet panier
+       $favoris=json_decode($favoris_str); 
+
+   }
+   else {
     
-//     if (isset($_COOKIE['favoris'])==false){
-//         $monfavori = Annonces::retrieveByPK($_GET['id']);
-//         // $monfavori_encode=json_encode($monfavori);
-//         $monfavori_encode=json_encode($monfavori);
-//         setcookie("favoris",$monfavori_encode,time() + 60*60*24*30);
-//         include __DIR__."/../../templates/ajout_favoris.php";
-//         return;
-//     }
-
-//         // Je recupere le cookie
-    
-//     // if (isset($_COOKIE['favoris'])){
-
-//         // Je recupere le cookie
-//        $favoris_str=$_COOKIE['favoris'];
-//        //je convertie en objet panier
-//        $favoris=json_decode($favoris_str);
-
-//     //    $favoris_encode=json_encode($favoris);
-
-
-//         // include_once __DIR__."/../entity/Favori.php";
-//         // $favoris = new Favori();
-//         // $favoris->ligneFav=[];
-//         // include_once __DIR__."/../entity/LigneFav.php";
-//         // $unfavori=new LigneFav();
-//         // $unfavori->titre=Annonces::retrieveById($_GET['id']);
-//         var_dump($_COOKIE);
-//         $monfavori = Annonces::retrieveByPK($_GET['id']);
-//         echo "<br/>Mon Favori 1<br/>";
-//         print_r($monfavori);
-//         $monfavori_encode=json_encode($monfavori, true);
-//         echo "<br/>Mon Favori après decode<br/>";
-//         print_r($monfavori);
-        
-        
-//         // $monfavori_encode=json_encode($monfavori);
-
-
-//         echo "<br/>Favoris 1<br/>";
-//         var_dump($favoris); // OBJET
-//         echo "<br/>";
-//         $favoris_encode=json_encode($favoris);
-//         echo "<br/>Favori après encode<br/>";
-//         var_dump($favoris_encode);
-//         echo "<br/>";
-//         $favoris_decode=json_decode($favoris_encode, true);
-//         echo "<br/>Favori après decode true<br/>";
-//         var_dump($favoris_decode);
-//         // var_dump($monfavori_encode);
-//         echo "<br/>";
-//         $favoris_decode = json_decode($favoris_encode, true);
-//         $favoris_str = json_encode($favoris_decode);
-//         $monfavori_decode = json_decode($monfavori_encode, true);
-//         var_dump($monfavori_decode);
-//         var_dump($favoris_decode);
-//         echo "<br/>";
-//         // array_push($favoris_decode, $monfavori_decode);
-//         // array_push($favoris_encode, $monfavori_encode);
-//         // il faut faire le cookie
-//         // $favoris_encode = json_encode($favoris_decode);
-//         // array_push($favoris->ligneFav, $unfavori);
-//         // $favoris_encode = json_encode($favoris);
-//         // setcookie("favoris",$favori_encode);
-//         setcookie("favoris",$favoris_str, time() + 60*60*24*30);
+       $favoris=new Favoris();
        
-//     include __DIR__."/../../templates/ajout_favoris.php";
-// }
+       $favoris->favori=[];
+   }
 
+   
+   // on créé une ligne du panier
+   $favori=new Favori();
+   // on insérer l'article dans la variable article grâce à l'ORM
+   $favori = Annonces::retrieveByPK($_GET['id']);
+
+
+   // avant de rajouter si il est dans le panier ou pas ? Si il est dedans 
+   // juste rajouter la quantité 
+
+  // pacourir mon panier et verifier j'ai l 'id que je veux rajouter
+  array_push($favoris->favori, $favori);
+
+  $favoris_encode=json_encode($favoris);
+  
+  setcookie("favoris",$favoris_encode);
+        
+    include __DIR__."/../../templates/ajout_favoris.php";
+}
+
+// version $_SESSION
 
 function ajouter_favoris() {
 
@@ -186,7 +155,7 @@ else {
    
 }
         
-    include __DIR__."/../../templates/ajout_favoris.php";
+    include __DIR__."/../../templates/ajout_favoris2.php";
 }
 
 function mes_favoris() {
@@ -195,12 +164,50 @@ function mes_favoris() {
     include_once __DIR__.'/../../templates/favoris.php';
 }
 
-function retirer_favori() {
+function mes_favoris2() {
     if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+    include_once __DIR__.'/../Entity/Annonces.php';
+    if (!isset($_COOKIE['favoris'])) {
+        include_once __DIR__.'/../../templates/favoris2.php';
+        return;
+    }
+    $favoris_string=$_COOKIE['favoris'];
+    $favoris=json_decode($favoris_string); 
+    include_once __DIR__.'/../../templates/favoris2.php';
+}
 
-    require_once __DIR__."/../../src/Entity/Annonces.php";
+function retirer_favori() {
+    // if (isset($_SESSION['user'])==false) { header('location: identification'); die; }
+
+    // require_once __DIR__."/../../src/Entity/Annonces.php";
     
-    $entry = Annonces::retrieveByPK($_GET['id']);
+    // $entry = Annonces::retrieveByPK($_GET['id']);
+    // $favtitre = $entry->titre;
+    $index = $_GET['pos'];
+    // if (isset($_SESSION['favoris'])) {
+    //     unset($_SESSION['favoris'][$index]);
+    //     $tab_retire = $_SESSION['favoris'];
+    //     $_SESSION['favoris'] = $tab_retire;
+    // }
+    if (isset($_COOKIE['favoris'])) {
+        $favoris_str = ($_COOKIE['favoris']);
+        $favoris=json_decode($favoris_str);
+        unset($_COOKIE['favoris']);
+        var_dump($_COOKIE);
+        echo "<br/><br/>";
+        var_dump($favoris);
+        echo "<br/><br/>";
+        var_dump($favoris->favori);
+        echo "<br/><br/>";
+        var_dump($favoris->favori[$index]);
+        unset($favoris->favori[$index]);
+        echo "<br/><br/>";
+        var_dump($favoris->favori);
+        $favoris_str=json_encode($favoris);
+        echo "<br/><br/>";
+        var_dump($favoris_str);
+        setcookie("favoris",$favoris_str);
+    }
     
     include __DIR__."/../../templates/retir_favori.php";
 }
