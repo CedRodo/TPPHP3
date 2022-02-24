@@ -276,8 +276,9 @@ legend {
     border-radius: 10px;
 }
 
-.annonce2 .modsup button a {    
+.modsup button a {    
     color: wheat;
+    text-decoration: none !important;
 }
 
 .panier-form {
@@ -469,7 +470,9 @@ legend {
     background-color: red !important;
 }
 
-
+/* .placeholder-wrap [placeholder] {
+    pre
+} */
 
 
 

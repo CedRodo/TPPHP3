@@ -31,6 +31,12 @@ else if ($_SERVER['PATH_INFO']=="/enregistrer_annonce"){
     enregistrer_annonce();
 }
 
+else if ($_SERVER['PATH_INFO']=="/suppression_annonce"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    suppression_annonce();
+}
+
 else if ($_SERVER['PATH_INFO']=="/mes_annonces"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
