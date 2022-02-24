@@ -3,29 +3,32 @@
 //dans cd public
 // php -S localhost:8000
 
+// ACCUEIL
+
 if (isset($_SERVER['PATH_INFO'])==false){
   
-    include __DIR__.'/../src/controller/accueil_ctrl.php';
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    accueil();
 }
 
 else if ($_SERVER['PATH_INFO']=="/accueil"){
    
-    include __DIR__.'/../src/controller/accueil_ctrl.php';
-
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    accueil();
 }
+
+// Partie "ANNONCES"
 
 else if ($_SERVER['PATH_INFO']=="/publication"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
     publier_annonce();
-
 }
 
 else if ($_SERVER['PATH_INFO']=="/enregistrer_annonce"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
     enregistrer_annonce();
-
 }
 
 else if ($_SERVER['PATH_INFO']=="/mes_annonces"){
@@ -34,7 +37,7 @@ else if ($_SERVER['PATH_INFO']=="/mes_annonces"){
     mes_annonces();
 }
 
-else if ($_SERVER['PATH_INFO']=="/annonces"){
+else if ($_SERVER['PATH_INFO']=="/toutes_annonces"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
     toutes_annonces();
@@ -58,11 +61,7 @@ else if ($_SERVER['PATH_INFO']=="/top_annonces"){
     top_annonces();
 }
 
-else if ($_SERVER['PATH_INFO']=="/ajouter_favoris"){
-   
-    include __DIR__.'/../src/controller/annonce_ctrl.php';
-    ajouter_favoris();
-}
+// Partie "FAVORIS"
 
 else if ($_SERVER['PATH_INFO']=="/ajouter_favoris2"){
    
@@ -70,16 +69,16 @@ else if ($_SERVER['PATH_INFO']=="/ajouter_favoris2"){
     ajouter_favoris2();
 }
 
+else if ($_SERVER['PATH_INFO']=="/ajouter_favoris"){
+   
+    include __DIR__.'/../src/controller/annonce_ctrl.php';
+    ajouter_favoris();
+}
+
 else if ($_SERVER['PATH_INFO']=="/favoris"){
    
     include __DIR__.'/../src/controller/annonce_ctrl.php';
     mes_favoris();
-}
-
-else if ($_SERVER['PATH_INFO']=="/favoris2"){
-   
-    include __DIR__.'/../src/controller/annonce_ctrl.php';
-    mes_favoris2();
 }
 
 else if ($_SERVER['PATH_INFO']=="/retirer_favori"){
@@ -93,6 +92,8 @@ else if ($_SERVER['PATH_INFO']=="/vider_favoris"){
     include __DIR__.'/../src/controller/annonce_ctrl.php';
     vider_favoris();
 }
+
+// Partie "CONNEXION UTILISATEUR"
 
 else if ($_SERVER['PATH_INFO']=="/inscription"){
    
@@ -117,6 +118,8 @@ else if ($_SERVER['PATH_INFO']=="/identification"){
     include __DIR__.'/../src/controller/connexion_ctrl.php';
     identification();
 }
+
+// Pour faire des tests
 
 else if ($_SERVER['PATH_INFO']=="/videcookie"){
    
