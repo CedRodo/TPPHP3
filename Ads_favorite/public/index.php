@@ -129,10 +129,15 @@ else if ($_SERVER['PATH_INFO']=="/identification"){
 
 else if ($_SERVER['PATH_INFO']=="/videcookie"){
    
-    include __DIR__.'/../src/controller/videcookie.php';
+    include __DIR__.'/../templates/tests/videcookie.php';
 }
 
 else if ($_SERVER['PATH_INFO']=="/test"){
    
-    include __DIR__.'/../src/controller/test.php';
+    include __DIR__.'/../templates/tests/test.php';
+}
+
+else if ($_SERVER['PATH_INFO']=="/header"){
+   
+    include __DIR__.'/../templates/tests/header-test.php';
 }
