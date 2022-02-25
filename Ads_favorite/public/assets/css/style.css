@@ -126,23 +126,20 @@ legend {
 
 .annonce {
     box-sizing: border-box;
+    border-radius: 10px;
     padding: 15px 30px;
-    width: 800px;
-    max-height: 1200px;
-    background-color: rgba(236, 232, 227, 0.959);
+    width: 500px;
+    height: 1100px;
+    background-color: rgba(245, 242, 239, 0.959);
     margin-bottom: 100px;
 }
 
 .annonce .titre {
+    min-height: 5%;
+    max-height: 5%;
     font-size: 25px;
     margin-bottom: 50px;
     text-align: center;
-}
-
-.annonce .ref {
-    text-align: end;
-    font-size: 15px;
-    margin-bottom: 10px;
 }
 
 .annonce .titre a {
@@ -151,8 +148,7 @@ legend {
 
 .annonce .message {
     white-space: pre-wrap;
-    height: 400px;
-    max-height:400px;
+    height: 30%;
     overflow: hidden;
     margin-bottom: 50px;
 }
@@ -162,6 +158,8 @@ legend {
 }
 
 .annonce .date {
+    height: 10%;
+    max-height: 10%;
     margin-bottom: 0px;
 }
 
@@ -173,14 +171,17 @@ legend {
 }
 
 .annonce .photos {    
-    text-align: center;
-    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    height: 30%;
 }
 
 .annonce .photos img {
-    height: 300px;
-    margin: 0px 10px;
-    max-width:400px;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down !important;
+    overflow: hidden !important;
     transition: all .6s ease-in-out;
 }
 
@@ -192,12 +193,9 @@ legend {
     text-align: end;
 }
 
-.annonce .modsup button {    
-    font-size: 16px;
-    padding: 10px 15px;
-    margin-left: 20px;
-    background-color: rgb(89, 89, 134);
-    border-radius: 10px;
+.annonce .modsup img {    
+    height: 45px;
+    margin-left: 10px;
 }
 
 .annonce .modsup button a {    
@@ -209,7 +207,7 @@ legend {
     background-color: rgb(248, 248, 248);
 }
 
-.annonce2 {
+/* .annonce2 {
     padding: 15px 30px;
     width: 100%;
     margin-left: -100px;
@@ -217,12 +215,9 @@ legend {
 }
 
 .annonce2 .titre {
+    min-height: 8%;
+    max-height: 8%;
     font-size: 25px;
-    margin-bottom: 50px;
-}
-
-.annonce2 .ref {
-    font-size: 15px;
     margin-bottom: 50px;
 }
 
@@ -274,7 +269,7 @@ legend {
     margin-left: 20px;
     background-color: rgb(89, 89, 134);
     border-radius: 10px;
-}
+} */
 
 .modsup button a {    
     color: wheat;
@@ -295,7 +290,10 @@ legend {
 }
 
 .art_icons {
-  margin-left: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .favoris_annonces {
