@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="http://localhost:8000/assets/css/style.css" >
-    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:8000/assets/icons_logos/favicon_ads_favorite2.png">
     <title>Ads Favorite</title>
 </head>
 <body>
@@ -26,7 +24,7 @@
       <li class="nav-item">
         <a class="nav-link" href="publication">Publier une annonce</a>
       </li>
-            <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="mes_annonces">Mes annonces</a>
       </li>
       <li class="nav-item">
@@ -37,21 +35,21 @@
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Consulter les annonces
+            Dropdown
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Les annonces les plus visitées</a></li>
-            <li><a class="dropdown-item" href="#">Top annonces</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Les annonces les plus récentes</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
       <li style="width: 920px;" class="nav-item">
         <div style="padding-top: 5px; text-align: end;">
               <?php if (isset($_SESSION['name'])==true) { ?>
               <p style="white-space: pre-wrap; display: inline;"><img src="http://localhost:8000/assets/icons_logos/user.png" alt="nom de l'utilisateur"> Bonjour <span style="color: green;"><?php echo $_SESSION['name'];?></span>   <a href="deconnexion"><img src="http://localhost:8000/assets/icons_logos/logout.png" alt="se déconnecter"></a></p>
-              <?php } else { ?>
-              <p style="white-space: pre-wrap; display: inline;">  <a href="connexion"><img src="http://localhost:8000/assets/icons_logos//login.png" alt="se connecter"></a> <?php } ?> <a href="inscription"><img src="http://localhost:8000/assets/icons_logos/inscription.png" alt="s'inscrire"></a></p>
+              <?php } ?>
+              <p style="white-space: pre-wrap; display: inline;">  <a href="connexion"><img src="http://localhost:8000/assets/icons_logos//login.png" alt="se connecter"></a>  <a href="inscription"><img src="http://localhost:8000/assets/icons_logos/inscription.png" alt="s'inscrire"></a></p>
             </div>
       </li>
     </ul>

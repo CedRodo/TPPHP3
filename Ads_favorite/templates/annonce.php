@@ -1,36 +1,31 @@
 <?php include_once "header.php"; ?>
 
-<?php
-
-require_once "../src/Entity/Annonces.php";
-
-?>
-
-<h3>Annonce</h3>
-<br/>
-<br/>
-<br/>
-<?php
-$entry = Annonces::retrieveByPK($_GET['id']); ?>
-
-<section id="article">
-<h4>Référence : </h4>
-<p><?php echo $entry->ref; ?></p>
-<h4>Titre : </h4>
-<p><?php echo $entry->titre; ?></p>
-<br/>
-<br/>
-<br/>
-<br/>
-<h4>Message : </h4>
-<p><?php echo $entry->message; ?></p>
-<br/>
-<br/>
-<h4>Date de l'envoi : </h4>
-<p><?php echo $entry->dateenvoi ?></p>
-<p><img src="http://localhost:8000/img/<?php echo $entry->image;?>"><p>
+<h1>Annonce</h1>
+<section id="article2">
+<article class="une_annonce">
+<h3>Annonce de <?php echo $utilisateur->prenom." ".$utilisateur->nom; ?></h3>
+<div class="art_icons">
+    <a class="star-favorite" href="ajouter_favoris?id=<?= $entry->id; ?>&datefavori=<?= $datefavori; ?>&page=une"><img title="Favoris" src="http://localhost:8000/assets/icons_logos/favorite.png" alt="star favorite"><a/>
+</div>
+<div class="ref_annonce">
+    <h4>Reférence</h4><p><?php echo $entry->ref; ?></p>
+</div>
+<div class="titre_annonce">
+    <h4>Titre</h4><p><?php echo $entry->titre; ?></p>
+</div>
+<div class="message_annonce">
+<h4>Message</h4>
+<p style="display: block !important;"><?php echo $entry->message; ?></p>
+</div>
+<div class="date_annonce">
+    <h4 style=";">Date de l'envoi</h4><p><?php echo $entry->dateenvoi ?></p>
+</div>
+<div class="image_annonce">
+<img src="http://localhost:8000/img/<?php echo $entry->image; ?>">
+</div>
+</article>
 </section>
 
-<a href="index.php">Retour vers la page d'accueil</a>
+<p style="font-size: 18px; color: white;">Retour vers la page d'<a style="text-decoration: none; color: red;" href="/">accueil</a>, <a style="text-decoration: none; color: green;" href="mes_annonces">vos annonces</a> ou <a style="text-decoration: none; color: yellow;" href="toutes_annonces">toutes les annonces</a>.</p>
 
 <?php require "footer.php"; ?>

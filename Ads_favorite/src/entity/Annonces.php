@@ -9,7 +9,8 @@ class Annonces extends SimpleOrm {
     public $message;
     public $image;
     public $dateenvoi;
-    public $id_user;
+    public $datefavori;
+    public $email_user;
 }
 
 ?>
